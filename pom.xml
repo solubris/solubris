@@ -120,7 +120,7 @@
 			<plugin>
 				<groupId>org.cloudfoundry</groupId>
 				<artifactId>cf-maven-plugin</artifactId>
-				<version>1.0.0.M2</version>
+				<version>1.0.0.M3</version>
 				<configuration>
 					<server>${project.name}</server>
 					<target>http://api.cloudfoundry.com</target>
