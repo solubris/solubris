@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>solubris</groupId>
@@ -18,7 +19,7 @@
 		mvn release:prepare (will run tests, so they must pass. -DskipTests doesn't work)
 		mvn release:perform
 		Express command:
-		mvn --batch-mode release:prepare; mvn release:perform 
+		mvn site; mvn --batch-mode release:prepare; mvn release:perform 
 
 		Run reports and build maven site
 		mvn site
@@ -61,77 +62,87 @@
 	</dependencies>
 
 	<build>
-		<!-- should these be out of pluginManagement? -->
-		<pluginManagement>
 		<plugins>
-			<!-- need to force version 3 of site plugin to get it to work in maven 3 -->
+			<!-- force properties to loaded on all projects (doesn't work in pluginManagement)-->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.6</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.2.2</version>
-				<configuration>
-					<goals>install</goals>
-				</configuration>
-			</plugin>
-
-			<!-- Force latest version of default plugins -->
-			<!-- [INFO] [WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.4</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.4</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.cloudfoundry</groupId>
-				<artifactId>cf-maven-plugin</artifactId>
-				<version>1.0.0.M3</version>
-				<configuration>
-					<server>${project.name}</server>
-					<target>http://api.cloudfoundry.com</target>
-					<url>${project.name}.cloudfoundry.com</url>
-					<memory>512</memory>
-					<username>timothy@solubris.com</username>
-					<password>sqIO5Q6y</password>
-					<services>mysql-${project.name}</services>
-				</configuration>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>pre-site</phase>
+						<!-- <phase>initialize</phase> -->
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<quiet>true</quiet>
+							<files>
+								<file>src/main/resources/META-INF/spring/database.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
+
+		<!-- should these be out of pluginManagement? -->
+		<pluginManagement>
+			<plugins>
+
+				<!-- need to force version 3 of site plugin to get it to work in maven 3 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>1.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.2.2</version>
+					<configuration>
+						<goals>install</goals>
+					</configuration>
+				</plugin>
+
+				<!-- Force latest version of default plugins -->
+				<!-- [INFO] [WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.9</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.1.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
 		</pluginManagement>
 	</build>
 
@@ -189,32 +200,32 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.9</version>
-						<configuration>
-							<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
-							<docletArtifact>
-								<groupId>org.umlgraph</groupId>
-								<artifactId>umlgraph</artifactId>
-								<version>5.6.0-SNAPSHOT</version>
-							</docletArtifact>
-							<detectLinks>true</detectLinks>
-							<validateLinks>true</validateLinks>
-							<quiet>true</quiet>
-							<show>private</show>
-							<links>
-								<link>http://static.springsource.org/spring/docs/3.1.x/javadoc-api/</link>
-								<link>http://static.springsource.org/spring-security/site/docs/3.1.x/apidocs/</link>
-							</links>
-							<additionalparam>
-								-attributes -visibility -types -qualify -enumerations -enumconstants
-								-inferrel -inferreltype has
-								-inferdep
-								-quiet -hide java.* -hide org.slf4j
-								-collpackages java.util.* -qualify
-								-postfixpackage -nodefontsize 9
-								-nodefontpackagesize 7
-								-collapsible -views
-							</additionalparam>
-						</configuration>
+				<configuration>
+					<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+					<docletArtifact>
+						<groupId>org.umlgraph</groupId>
+						<artifactId>umlgraph</artifactId>
+						<version>5.6.0-SNAPSHOT</version>
+					</docletArtifact>
+					<detectLinks>true</detectLinks>
+					<validateLinks>true</validateLinks>
+					<quiet>true</quiet>
+					<show>private</show>
+					<links>
+						<link>http://static.springsource.org/spring/docs/3.1.x/javadoc-api/</link>
+						<link>http://static.springsource.org/spring-security/site/docs/3.1.x/apidocs/</link>
+					</links>
+					<additionalparam>
+						-attributes -visibility -types -qualify -enumerations -enumconstants
+						-inferrel -inferreltype has
+						-inferdep
+						-quiet -hide java.* -hide org.slf4j
+						-collpackages java.util.* -qualify
+						-postfixpackage -nodefontsize 9
+						-nodefontpackagesize 7
+						-collapsible -views
+					</additionalparam>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -324,12 +335,13 @@
 				<artifactId>maven-schemaspy-plugin</artifactId>
 				<version>1.0.4</version>
 				<configuration>
+					<!-- import database.properties so have only one copy of db settings -->
 					<databaseType>mysql</databaseType>
-					<database>${project.artifactId}</database>
-					<jdbcUrl>jdbc:mysql://localhost:3306/${project.artifactId}</jdbcUrl>
+					<jdbcUrl>${database.url}</jdbcUrl>
+					<user>${database.username}</user>
+					<password>${database.password}</password>
+ 					<database>scraper5</database>
 					<host>localhost</host>
-					<user>root</user>
-					<password>root</password>
 				</configuration>
 			</plugin>
 
@@ -360,26 +372,9 @@
 				<version>1.0-alpha-3</version>
 				</plugin>
 			-->
-
-			<!--
-				<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changelog-plugin</artifactId>
-				<version>2.2</version>
-				</plugin>
-			-->
-			<!-- Stat SCM -->
-			<!-- Only enable if using scm, also quite slow -->
-			<!--
-				<plugin>
-				<groupId>net.sf</groupId>
-				<artifactId>stat-scm</artifactId>
-				<version>1.2.0</version>
-				</plugin>
-			-->
 		</plugins>
 	</reporting>
-  <modules>
-    <module>scm</module>
-  </modules>
+<!-- 	<modules>
+		<module>scm</module>
+	</modules> -->
 </project>
