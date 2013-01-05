@@ -8,13 +8,54 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>ParentPom</name>
-	<url>http://maven.apache.org</url>
+	<url>http://www.solubris.com/</url>
 	<packaging>pom</packaging>
 	<modules>
 		<module>solubris-test</module>
 		<module>github</module>
 		<module>svn</module>
 	</modules>
+
+	<inceptionYear>2012</inceptionYear>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+	<contributors>
+		<contributor>
+			<name>Tim Walters</name>
+			<email>tim@solubris.com</email>
+			<organization>Solubris Ltd</organization>
+			<organizationUrl>http://www.solubris.com/</organizationUrl>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+				<role>Release Manager</role>
+			</roles>
+			<timezone>+0</timezone>
+		</contributor>
+	</contributors>
+	<developers>
+		<developer>
+			<name>Tim Walters</name>
+			<email>tim@solubris.com</email>
+			<organization>Solubris Ltd</organization>
+			<organizationUrl>http://www.solubris.com/</organizationUrl>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+				<role>Release Manager</role>
+			</roles>
+			<timezone>+0</timezone>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://github.com/solubris/solubris.git</connection>
+		<developerConnection>scm:git:https://github.com/solubris/solubris.git</developerConnection>
+		<url>https://github.com/solubris/solubris/blob/master</url>
+		<!-- <connection>scm:git:git@github.com:solubris/marketmon.git</connection>
+			<url>scm:git:git@github.com:solubris/marketmon.git</url>
+			<developerConnection>scm:git:git@github.com:solubris/marketmon.git</developerConnection> -->
+	</scm>
 
 	<description>
 		Report dependency updates:
