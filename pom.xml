@@ -12,6 +12,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>solubris-test</module>
+		<module>github</module>
+		<module>svn</module>
 	</modules>
 
 	<description>
