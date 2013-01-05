@@ -5,7 +5,7 @@
 
 	<groupId>solubris</groupId>
 	<artifactId>solubris-test</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<name>solubris-test</name>
 	<url>http://www.solubris.com</url>
@@ -25,17 +25,6 @@
 	</properties>
 
 	<repositories>
-		<repository>
-			<id>jboss.releases</id>
-			<name>JBoss releases</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
 
 	<dependencies>
