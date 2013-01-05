@@ -3,16 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>solubris</groupId>
-	<artifactId>parent</artifactId>
+	<artifactId>solubris-common</artifactId>
 	<version>0.2.0-SNAPSHOT</version>
 
-	<name>ParentPom</name>
+	<name>solubris-common</name>
 	<url>http://www.solubris.com/</url>
 	<packaging>pom</packaging>
 	<modules>
 		<module>solubris-test</module>
-		<module>github</module>
-		<module>svn</module>
+		<module>solubris-github</module>
+		<module>solubris-svn</module>
 	</modules>
 
 	<inceptionYear>2012</inceptionYear>

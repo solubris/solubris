@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
- 		<relativePath>../github/pom.xml</relativePath>
+		<relativePath>../solubris-github/pom.xml</relativePath>
 		<version>0.2.0-SNAPSHOT</version>
 		<groupId>solubris</groupId>
-		<artifactId>github</artifactId>
+		<artifactId>solubris-github</artifactId>
 	</parent>
 
 	<artifactId>solubris-test</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 
 	<name>solubris-test</name>
 	<url>http://www.solubris.com</url>
@@ -126,12 +127,12 @@
 			<version>3.1</version>
 		</dependency>
 		<!-- ROO dependencies -->
-<!-- 		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.roo</groupId>
 			<artifactId>org.springframework.roo.annotations</artifactId>
 			<version>${roo.version}</version>
 			<scope>provided</scope>
-		</dependency> -->
+			</dependency> -->
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
