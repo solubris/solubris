@@ -6,6 +6,7 @@ utility classes for solubris testing
 Usage:
 
 Add repository:
+
 		<repository>
 			<id>solubris-snapshot</id>
 			<name>Solubris Repository</name>
@@ -13,6 +14,7 @@ Add repository:
 		</repository>
 
 Add dependency:
+
 		<dependency>
 			<groupId>solubris</groupId>
 			<artifactId>solubris-test</artifactId>
