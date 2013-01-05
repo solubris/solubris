@@ -10,6 +10,10 @@
 	<name>ParentPom</name>
 	<url>http://maven.apache.org</url>
 	<packaging>pom</packaging>
+	<modules>
+		<module>solubris-test</module>
+	</modules>
+
 	<description>
 		Report dependency updates:
 		mvn versions:display-dependency-updates
@@ -374,7 +378,4 @@
 			-->
 		</plugins>
 	</reporting>
-<!-- 	<modules>
-		<module>scm</module>
-	</modules> -->
 </project>
