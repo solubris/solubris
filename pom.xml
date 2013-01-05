@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>solubris</groupId>
@@ -107,9 +108,22 @@
 	<dependencies>
 	</dependencies>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>solubris-snapshot</id>
+			<name>Solubris Repository</name>
+			<url>https://repository-solubris.forge.cloudbees.com/snapshot/</url>
+		</snapshotRepository>
+		<repository>
+			<id>solubris-release</id>
+			<name>Solubris Repository</name>
+			<url>https://repository-solubris.forge.cloudbees.com/release/</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<plugins>
-			<!-- force properties to loaded on all projects (doesn't work in pluginManagement)-->
+			<!-- force properties to loaded on all projects (doesn't work in pluginManagement) -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>properties-maven-plugin</artifactId>
@@ -391,7 +405,7 @@
 					<jdbcUrl>${database.url}</jdbcUrl>
 					<user>${database.username}</user>
 					<password>${database.password}</password>
- 					<database>scraper5</database>
+					<database>scraper5</database>
 					<host>localhost</host>
 				</configuration>
 			</plugin>
