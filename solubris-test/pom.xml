@@ -47,14 +47,6 @@
 			<timezone>+0</timezone>
 		</developer>
 	</developers>
-	<scm>
-		<connection>scm:git:https://github.com/solubris/solubris.git</connection>
-		<developerConnection>scm:git:https://github.com/solubris/solubris.git</developerConnection>
-		<url>https://github.com/solubris/solubris/blob/master</url>
-		<!-- <connection>scm:git:git@github.com:solubris/marketmon.git</connection>
-			<url>scm:git:git@github.com:solubris/marketmon.git</url>
-			<developerConnection>scm:git:git@github.com:solubris/marketmon.git</developerConnection> -->
-	</scm>
 
 	<properties>
 		<lineLength>120</lineLength>

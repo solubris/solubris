@@ -49,12 +49,15 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:https://github.com/solubris/solubris.git</connection>
-		<developerConnection>scm:git:https://github.com/solubris/solubris.git</developerConnection>
-		<url>https://github.com/solubris/solubris/blob/master</url>
-		<!-- <connection>scm:git:git@github.com:solubris/marketmon.git</connection>
-			<url>scm:git:git@github.com:solubris/marketmon.git</url>
-			<developerConnection>scm:git:git@github.com:solubris/marketmon.git</developerConnection> -->
+		<!--
+			<connection>scm:git:https://github.com/solubris/solubris.git</connection>
+			<developerConnection>scm:git:https://github.com/solubris/solubris.git</developerConnection>
+			<url>https://github.com/solubris/solubris/blob/master</url>
+		-->
+		<!-- Use ssh style connection so dont need to enter login details each time -->
+		<connection>scm:git:ssh://git@github.com:solubris/solubris.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:solubris/solubris.git</developerConnection>
+		<url>https://github.com/solubris/solubris</url>
 	</scm>
 
 	<description>
