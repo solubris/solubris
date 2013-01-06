@@ -9,7 +9,6 @@
 	</parent>
 
 	<artifactId>solubris-test</artifactId>
-	<version>0.2.1-SNAPSHOT</version>
 
 	<name>solubris-test</name>
 	<url>http://www.solubris.com</url>

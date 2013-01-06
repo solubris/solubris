@@ -3,7 +3,7 @@ solubris-test
 
 utility classes for solubris testing
 
-Usage:
+## Usage: ##
 
 Add repository:
 
