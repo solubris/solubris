@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<relativePath>../solubris-github/pom.xml</relativePath>
-		<version>0.2.2-SNAPSHOT</version>
+		<version>0.2.2</version>
 		<groupId>solubris</groupId>
 		<artifactId>solubris-github</artifactId>
 	</parent>

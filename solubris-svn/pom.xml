@@ -3,11 +3,11 @@
 	<parent>
 		<groupId>solubris</groupId>
 		<artifactId>solubris-common</artifactId>
-		<version>0.2.2-SNAPSHOT</version>
+		<version>0.2.2</version>
 	</parent>
 
 	<artifactId>solubris-svn</artifactId>
-	<version>0.2.2-SNAPSHOT</version>
+	<version>0.2.2</version>
 
 	<name>solubris-svn</name>
 	<url>http://maven.apache.org</url>
